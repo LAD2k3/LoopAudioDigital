@@ -1,0 +1,60 @@
+﻿
+@model IEnumerable<SONGIndexViewModel>
+
+<div class="card">
+    <div class="card-body">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Song</a></li>
+                <li class="breadcrumb-item active" aria-current="page">All Song</li>
+            </ol>
+        </nav>
+        <div class="row">
+            <div class="col-md-12 table-responsive-md">
+                <a class="btn btn-xs btn-outline-success float-md-right mb-3" asp-action=CreateSong> New Song</a>
+                <table class="table table-striped table-info">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Song Name</th>
+                            <th>Artist Name</th>
+                            <th>Date Upload</th>
+                            <th>Listen Count</th>
+                            <th class="text-warning">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><a asp-action="DetailSong" asp-route-id="@item.Id">
+                                        <img src="@Url.Content(item.ImageUrl)", style="width:100px; height:100px"/>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a asp-action="DetailSong" asp-route-id="@item.Id">
+                                            @item.SongName
+                                    </a>
+                                </td>
+                                <td>@item.ArtistName</td>
+                                <td>@item.DateUpload</td>
+                                <td>@item.count</td>
+                                <td>
+                                    <a class="text-primary" asp-action="EditSong" asp-route-id="@item.Id">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <a class="text-success" asp-action="DetailSong" asp-route-id="@item.Id">
+                                        <i class="fas fa-bars"></i> Detail
+                                    </a>
+                                    <a class="text-danger" asp-action="DeleteSong" asp-route-id="@item.Id">
+                                        <i class="far fa-trash-alt"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

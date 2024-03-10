@@ -1,0 +1,29 @@
+﻿
+@model SONGDetailViewModel
+
+<div class="col-md-12 grid-margin grid-margin-md-0">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Song" asp-action="IndexSong">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="IndexSong">Song List</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Song Details</li>
+                </ol>
+            </nav><br /><br />
+            <div class="wrap d-flex justify-content-md-start justify-content-sm-center flex-wrap">
+                <img class="rounded-circle shadow-lg" style="width:250px; height:250px" src="@Url.Content(Model.ImageUrl)" alt="" />
+                <audio controls autoplay preload="auto" "><source src="@Url.Content(Model.SongUrl)"></audio>
+                <div class="wrap align-content-center ml-5">
+                    <p class="font-weight-bold text-success" style="font-size:20px">@Model.SongName</p>
+                    <p class="font-weight-bold ">Artist Name: @Model.ArtistName</p>
+                    <p class="font-weight-normal"> Listen Count: @Model.ListenCount</p>
+                    <p class="font-weight-normal">Date Upload: @Model.DateUpload.ToString("dd/MM/yyyy")</p>
+                    @*<button class="font-weight-normal">@Model.Status</button>*@
+                        <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

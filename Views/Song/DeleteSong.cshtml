@@ -1,0 +1,19 @@
+﻿@using LoopAudioDigital.Models;
+@model SONGDeleteViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="card">
+    <div class="card-body">
+        <input asp-for="@Model.Id" readonly />
+        <input asp-for="@Model.SongName" readonly>
+        <form method="post" asp-action="DeleteSong" asp-controller="Song">
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a asp-action="IndexSong" class="btn btn-info">No</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

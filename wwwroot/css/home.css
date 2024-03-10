@@ -1,0 +1,9 @@
+﻿@media (min-width: 768px) {
+    body {
+        margin-bottom: 60px;
+    }
+
+    html {
+        font-size: 16px;
+    }
+}

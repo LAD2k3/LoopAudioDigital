@@ -1,0 +1,89 @@
+﻿@model SONGEditViewModel
+@using LoopAudioDigital.Entity;
+@using LoopAudioDigital.Models;
+<div class="card">
+    <div class="card-body">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-action="IndexSong">All Songs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Song</li>
+            </ol>
+        </nav>
+    </div>
+
+    <form method="post" asp-action="EditSong" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-row">
+            <div class="col-md-2"></div>
+            <div class="form-group col-md-2">
+                <label asp-for="DateUpload"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <input asp-for="DateUpload" class="form-control" />
+                <span asp-validation-for="DateUpload" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-2">
+                <label class="form-label" asp-for="@Model.SongName"></label>
+            </div>
+            <div class="form-group col-3">
+                <input class="form-control" asp-for="@Model.SongName" />
+                <span asp-validation-for="@Model.SongName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-2">
+                <label asp-for="ArtistName" class="form-label"></label>
+            </div>
+            <div class="form-group col-md-3">
+                <input asp-for="@Model.ArtistName class="form-control" />
+                <span asp-validation-for="@Model.ArtistName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-2"></div>
+            <div class="form-group col-md-1">
+                <label asp-for="@Model.ImageUrl"></label>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="btn btn-primary btn-icon-text">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <input asp-for="@Model.ImageUrl" type="file" value="Upload" />
+                    <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2"></div>
+            <div class="form-group col-md-1">
+                <label asp-for="@Model.SongUrl"></label>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="btn btn-primary btn-icon-text">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <input asp-for="@Model.SongUrl" type="file" value="Upload" />
+                    <span asp-validation-for="@Model.SongUrl" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+
+        <div class="form-group">
+
+            <button type="submit" class="btn btn-rounded btn-primary float-left"><i class="fas fa-plus-square" style="margin-right:0.7em"></i>Save</button>
+            <a asp-action="IndexSong" class="btn btn-rounded btn-success float-right"><i class="fas fa-caret-square-left" style="margin-right:0.7em"></i>Back</a>
+            <br />
+            <br />
+            <br />
+
+        </div>
+    </form>
+
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

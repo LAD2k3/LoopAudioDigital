@@ -1,0 +1,30 @@
+﻿@*
+@using LoopAudioDigital.Models;
+@model ARTISTDetailViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="col-md-12 grid-margin grid-margin-md-0">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index">Artist List</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Artist Details</li>
+                </ol>
+            </nav><br /><br />
+            <div class="wrap d-flex justify-content-md-start justify-content-sm-center flex-wrap">
+                <img class="rounded-circle shadow-lg" style="width:250px; height:300px" src="@Url.Content(Model.ImageUrl)" alt="" />
+                <div class="wrap align-content-center ml-5">
+                    <p class="font-weight-bold text-success" style="font-size:20px">ArtistName: @Model.ArtistName</p>
+                    <p class="font-weight-bold ">Email: @Model.Email</p>
+                    <p class="font-weight-bold ">Email: @Model.Email</p>
+                    <p class="font-weight-normal"> Description: @Model.Description</p>
+                    <p class="font-weight-normal">Date Participate: @Model.DateParticipate.ToString("dd/MM/yyyy")</p>
+                        <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+*@
